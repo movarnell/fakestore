@@ -8,30 +8,45 @@ import StoreFront from './Components/StoreFront';
 export default function App() {
 const [cartTotal, setCartTotal] = useState(0);
 const [costTotal, setCostTotal] = useState(0);
+const [cart, setCart] = useState([]);
 
 
 
-function addToCartTotal(cost){
-  console.log(costTotal)
-  console.log(cost)
+function addToCartTotal(product){
+const addProduct= product;
 let newTotal = cartTotal + 1;
 setCartTotal(newTotal); 
-let newCost = costTotal + parseInt(cost);
-console.log(newCost);
-console.log(cost);
+let newCost = costTotal + parseInt(product.price);
 setCostTotal(newCost); 
-console.log(newCost)
-console.log(costTotal);
+setCart([...cart, {
+  key:  product.key,
+  price: product.key,
+  prodname: product.prodname,
+}]);
+
+const newCartContents = {
+// productKey: {item.key}
+}
+const newCartTotal = {
+  itemsCount: {cartTotal},
+  costTotal: {costTotal}
+}
 
 }
 
-function removeFromCartTotal(cost){
+function removeFromCartTotal(product){
+  if(costTotal >= product.price){
   let newTotal = cartTotal - 1;
   console.log(newTotal);
   setCartTotal(newTotal);
-  let newCost = costTotal - cost;
+  
+  let newCost = costTotal - parseInt(product.price);
 setCostTotal(newCost); 
 console.log(newCost)
+
+const updatedCart = cart.filter((item) => item.key  !== product.key);
+setCart(updatedCart);
+  }
 }
 
   return (
@@ -40,7 +55,7 @@ console.log(newCost)
        <Route path='/' element={<StoreFront/>} />
        <Route path="/Products" element={<StoreFront/>} />
      </Router> */}
-    <StoreFront  cartTotal={cartTotal} costTotal={costTotal} addToCartTotal={addToCartTotal} removeFromCartTotal={removeFromCartTotal} />
+    <StoreFront  cartTotal={cartTotal} costTotal={costTotal} addToCartTotal={addToCartTotal} removeFromCartTotal={removeFromCartTotal} cart={cart} />
     </>
   )
 
