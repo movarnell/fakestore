@@ -23,7 +23,7 @@ const fetchProducts = async () => {const addProduct = await API.getProducts();
 
 console.log(products);
 return(
-    <div className='row'>
+    <div className='container'>
         <ProductCards products={products} />
     </div>
 )
