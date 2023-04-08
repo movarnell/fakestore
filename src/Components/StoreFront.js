@@ -1,27 +1,28 @@
 import { useState, useEffect } from "react";
-import { API } from "../API/Api";
+import  { getProductsAPI }  from "../ProductsAPI/GetProductsAPI";
 import ProductCards from "./ProductCards";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 
-export default function StoreFront() {
+export default function StoreFront({cartTotal, costTotal, addToCartTotal, removeFromCartTotal}) {
 	const [products, setProducts] = useState([]);
+	
 
 	useEffect(() => {
 		fetchProducts();
 	}, []);
 
 	const fetchProducts = async () => {
-		const addProduct = await API.getProducts();
-		console.log(addProduct);
+		const addProduct = await getProductsAPI();
 		setProducts(addProduct);
-		console.log(addProduct);
+		
 	};
 
-	console.log(products);
+	
+
 	return (
-		<div className="container-fluid cardContainer">
+		<div className="container-fluid ">
 			<div className="row">
-				<ProductCards products={products} />
+				<ProductCards costTotal={costTotal} products={products} cartTotal={cartTotal}  addToCartTotal={addToCartTotal} removeFromCartTotal={removeFromCartTotal}/>
 			</div>
 		</div>
 	);
