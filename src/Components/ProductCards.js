@@ -4,29 +4,16 @@ import Card from "react-bootstrap/Card";
 
 function ProductCards({ products , addToCartTotal, cartTotal, costTotal, removeFromCartTotal, cart}) {
 const [itemsTotal, setItemsTotal] = useState("");
-const [eachCount, setEachCount] = useState(0);
+const [eachCount, setEachCount] = useState();
 
 function handleClickAdd(products) {
 	addToCartTotal(products); 
-	
-	const	newCount = itemsTotal.count + 1;
-	
-	setItemsTotal([{
-		key: products.key,
-		count: {newCount}
-	}]);
-	console.log(itemsTotal);
-	}
-function handleClickRemove(products){
-	removeFromCartTotal(products);
-	const newCount = itemsTotal.count -1;
-	setItemsTotal([{
-		key: products.key,
-		count: {newCount}
-	}])
-	const updateEachCount = eachCount.filter((item) => item.key  !== products.key);
-	setEachCount(updateEachCount);
-	console.log(itemsTotal);
+}
+
+
+function handleClickRemove(product){
+	removeFromCartTotal(product);
+
 }
 
 
@@ -51,7 +38,7 @@ function handleClickRemove(products){
 								<br />
 								<span className="priceFormat">${products.price}</span>
 							</Card.Text>
-							<Button variant="primary" onClick={() => handleClickRemove(products)}>-</Button>{eachCount}<Button variant="primary" onClick={() => handleClickAdd(products)}>+</Button> <br/>Total items in Cart: {cartTotal}<br/>{costTotal}
+							<Button variant="primary" onClick={() => handleClickAdd(products)}>Add to Cart</Button> <br/>Total items in Cart: {cartTotal}<br/>{costTotal}
 						</Card.Body>
 					</Card>
 				</div>

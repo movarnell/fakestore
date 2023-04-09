@@ -6,34 +6,25 @@ import StoreFront from './Components/StoreFront';
 
 
 export default function App() {
-const [cartTotal, setCartTotal] = useState(0);
-const [costTotal, setCostTotal] = useState(0);
+const [cartTotal, setCartTotal] = useState();
+const [costTotal, setCostTotal] = useState();
 const [cart, setCart] = useState([]);
 
 
 
 function addToCartTotal(product){
-const addProduct= product;
 let newTotal = cartTotal + 1;
 setCartTotal(newTotal); 
 let newCost = costTotal + parseInt(product.price);
 setCostTotal(newCost); 
 setCart([...cart, {
-  key:  product.key,
+  id:  product.key,
   price: product.key,
   prodname: product.prodname,
 }]);
-
-const newCartContents = {
-// productKey: {item.key}
+console.log(cart);
 }
-const newCartTotal = {
-  itemsCount: {cartTotal},
-  costTotal: {costTotal}
-}
-
-}
-
+//Start next function
 function removeFromCartTotal(product){
   if(costTotal >= product.price){
   let newTotal = cartTotal - 1;
