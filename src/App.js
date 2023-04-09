@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import './App.css';
 // import { BrowserRouter, Route, Router } from 'react-router-dom';
 import StoreFront from './Components/StoreFront';
+import Menu from './Components/Menu';
+import ShowCart from './Components/ShowCart';
 
 
 
@@ -13,49 +15,67 @@ const [cart, setCart] = useState([]);
 
 
 function addToCartTotal(product){
-const addProduct= product;
-let newTotal = cartTotal + 1;
-setCartTotal(newTotal); 
-let newCost = costTotal + parseInt(product.price);
+const price = parseInt(product.price);
+console.log(costTotal);
+const currentTotal = parseInt(costTotal);
+console.log(costTotal);
+console.log(currentTotal);
+console.log(price);
+  // addind to cart totals
+let newTotal = parseInt(cartTotal) + 1;
+setCartTotal(parseInt(newTotal)); 
+// calculating cost
+console.log(currentTotal);
+let newCost = currentTotal + price;  
+console.log(newCost)
 setCostTotal(newCost); 
+// adding to array of stuff in the cart. 
 setCart([...cart, {
-  key:  product.key,
-  price: product.key,
+  id:  product.key,
+  price: parseInt(product.price),
   prodname: product.prodname,
 }]);
 
-const newCartContents = {
-// productKey: {item.key}
-}
-const newCartTotal = {
-  itemsCount: {cartTotal},
-  costTotal: {costTotal}
+
+console.log(cartTotal)
+// SO FILTERING THE ARRAY BELOW WILL PROVIDE A COUNT FOR HOW MANY ARE IN THE CART FOR THE CUSTOMER
+// NOW DO WE TAKE THAT COUNT AND ASSIGN IT AS A COUNT IN THE MOCK API, OR IN STATE? I WANT IT 
+// TO UPDATE AND BE USABLE LATER. 
+console.log(product.key)
+const filteredArray = cart.filter(item => item.id === product.key);
+console.log(filteredArray)
+console.log(filteredArray.length);
 }
 
-}
 
+
+
+//Start next function
 function removeFromCartTotal(product){
-  if(costTotal >= product.price){
-  let newTotal = cartTotal - 1;
-  console.log(newTotal);
-  setCartTotal(newTotal);
-  
-  let newCost = costTotal - parseInt(product.price);
-setCostTotal(newCost); 
-console.log(newCost)
+  console.log(product)
+const productPrice = parseInt(product.price)
+console.log(productPrice);
 
-const updatedCart = cart.filter((item) => item.key  !== product.key);
-setCart(updatedCart);
+
+// const updatedCart = cart.filter((item) => item.key  !== product.key);
+// setCart(updatedCart);
   }
-}
+
 
   return (
     <>
+    <Menu cartTotal={cartTotal} costTotal={costTotal} />
+    <ShowCart cart={cart} costTotal={costTotal} setCart={setCart} setCostTotal={setCostTotal}/>
     {/* <Router>
        <Route path='/' element={<StoreFront/>} />
        <Route path="/Products" element={<StoreFront/>} />
      </Router> */}
-    <StoreFront  cartTotal={cartTotal} costTotal={costTotal} addToCartTotal={addToCartTotal} removeFromCartTotal={removeFromCartTotal} cart={cart} />
+    <StoreFront  
+    cartTotal={cartTotal} 
+    costTotal={costTotal} 
+    addToCartTotal={addToCartTotal} 
+    removeFromCartTotal={removeFromCartTotal} 
+    cart={cart} />
     </>
   )
 

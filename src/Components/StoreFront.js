@@ -3,7 +3,7 @@ import  { getProductsAPI }  from "../ProductsAPI/GetProductsAPI";
 import ProductCards from "./ProductCards";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 
-export default function StoreFront({cartTotal, costTotal, addToCartTotal, removeFromCartTotal}) {
+export default function StoreFront({cartTotal, costTotal, addToCartTotal, removeFromCartTotal, cart, setCartTotal, setCostTotal}) {
 	const [products, setProducts] = useState([]);
 	
 
@@ -22,7 +22,15 @@ export default function StoreFront({cartTotal, costTotal, addToCartTotal, remove
 	return (
 		<div className="container-fluid ">
 			<div className="row">
-				<ProductCards costTotal={costTotal} products={products} cartTotal={cartTotal}  addToCartTotal={addToCartTotal} removeFromCartTotal={removeFromCartTotal}/>
+				<ProductCards 
+				cart={cart} 
+				costTotal={costTotal}
+				setCostTotal={setCostTotal} 
+				products={products} 
+				cartTotal={cartTotal} 
+				setCartTotal={setCartTotal} 
+				addToCartTotal={addToCartTotal} 
+				removeFromCartTotal={removeFromCartTotal}/>
 			</div>
 		</div>
 	);
