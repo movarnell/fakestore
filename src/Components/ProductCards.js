@@ -1,26 +1,21 @@
-import { useState } from "react";
+
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-function ProductCards({ products , addToCartTotal, cartTotal, costTotal, removeFromCartTotal, cart}) {
-const [itemsTotal, setItemsTotal] = useState("");
-const [eachCount, setEachCount] = useState();
+function ProductCards({ products, addToCartTotal}) {
 
-function handleClickAdd(products) {
-	addToCartTotal(products); 
+
+function handleClickAdd(products){
+addToCartTotal(products)
 }
 
 
-function handleClickRemove(product){
-	removeFromCartTotal(product);
-
-}
 
 
 
 	return (
 		<>
-		<div className="row">Your Current Total Tally is : ${costTotal}</div>
+		
 			{products.map((products) => (
 				<div className="col p-3 cardContainer" key={products.key}>
 					<Card
@@ -38,7 +33,7 @@ function handleClickRemove(product){
 								<br />
 								<span className="priceFormat">${products.price}</span>
 							</Card.Text>
-							<Button variant="primary" onClick={() => handleClickAdd(products)}>Add to Cart</Button> <br/>Total items in Cart: {cartTotal}<br/>{costTotal}
+							<Button variant="primary" onClick={() => handleClickAdd(products)}>Add to Cart</Button> 
 						</Card.Body>
 					</Card>
 				</div>
