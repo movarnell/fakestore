@@ -2,15 +2,13 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-function ProductCards({ products, addToCartTotal}) {
+function ProductCards({ products, addToCartTotal, cart}) {
 
+	
 
 function handleClickAdd(products){
-addToCartTotal(products)
+addToCartTotal(products )
 }
-
-
-
 
 
 	return (

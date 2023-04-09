@@ -10,7 +10,7 @@ function Menu({cartTotal, costTotal}) {
         <Container>
           
           <Navbar.Brand href="#home">
-          Cart {cartTotal} ${costTotal}
+          Cart {cartTotal} Total Cost: ${costTotal}
           </Navbar.Brand>
           
         </Container>

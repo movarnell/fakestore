@@ -21,3 +21,12 @@
   font-size: 2rem;
   align-content: center;
 }
+
+.alignRightTotal{
+  text-align: end;
+}
+
+.totalText{
+  font-size: 1.4rem;
+  font-weight: bold;
+}
