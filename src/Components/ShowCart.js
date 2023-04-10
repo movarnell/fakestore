@@ -14,7 +14,6 @@ export default function ShowCart({ cart, setCart, costTotal, setCostTotal }) {
 	return (
 		<div className="container border border-dark border-1 mt-5">
       <h1 className="bungee text-center">FakeStore</h1>
-      <h6 className="bungee text-center">Where nothing is real, and your money is no good!</h6>
 			<div className="row">
 				<Table striped>
 					<thead>
@@ -50,12 +49,10 @@ export default function ShowCart({ cart, setCart, costTotal, setCostTotal }) {
 					</tbody>
 				</Table>
 				<div className="row">
-          <div className="col bungee">
-					<Button variant="primary ">Checkout</Button>
-          </div>
-          <div className="col mb-2 bungee">
+          <div className="col bungee text-center">
+					<Button variant="primary m-4">Checkout</Button>  
             <Link to="/">
-					<Button variant="outline-primary">Continue Shopping </Button>
+					<Button variant="outline-primary m-4">Continue Shopping </Button>
           </Link>
           </div>
 				</div>

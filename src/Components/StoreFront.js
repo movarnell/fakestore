@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import  { getProductsAPI }  from "../ProductsAPI/GetProductsAPI";
 import ProductCards from "./ProductCards";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css";
+import Title from "./Title";
 
 export default function StoreFront({cartTotal, costTotal, addToCartTotal, removeFromCartTotal, cart, setCartTotal, setCostTotal}) {
 	const [products, setProducts] = useState([]);
@@ -21,6 +22,7 @@ export default function StoreFront({cartTotal, costTotal, addToCartTotal, remove
 
 	return (
 		<div className="container-fluid ">
+			<Title/>
 			<div className="row">
 				<ProductCards 
 				cart={cart} 

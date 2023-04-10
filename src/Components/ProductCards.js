@@ -15,10 +15,10 @@ addToCartTotal(products)
 		<>
 		
 			{products.map((products) => (
-				<div className="col p-3 cardContainer" key={products.key}>
+				<div className="col cardContainer" key={products.key}>
 					<Card
 						style={{ width: "18rem" }}
-						className="shadow"
+						className="shadow mb-4 mt-4"
 						key={products.key}
 					>
 						<Card.Img variant="top" src={products.image} />
