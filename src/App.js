@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './App.css';
-// import { BrowserRouter, Route, Router } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import StoreFront from './Components/StoreFront';
 import Menu from './Components/Menu';
 import ShowCart from './Components/ShowCart';
@@ -51,31 +51,31 @@ console.log(filteredArray.length);
 
 
 //Start next function
-function removeFromCartTotal(product){
-  console.log(product)
-const productPrice = parseInt(product.price)
-console.log(productPrice);
+// function removeFromCartTotal(product){
+//   console.log(product)
+// const productPrice = parseInt(product.price)
+// console.log(productPrice);
 
 
 // const updatedCart = cart.filter((item) => item.key  !== product.key);
 // setCart(updatedCart);
-  }
+  
 
 
   return (
     <>
-    <Menu cartTotal={cartTotal} costTotal={costTotal} />
-    <ShowCart cart={cart} costTotal={costTotal} setCart={setCart} setCostTotal={setCostTotal}/>
-    {/* <Router>
-       <Route path='/' element={<StoreFront/>} />
-       <Route path="/Products" element={<StoreFront/>} />
-     </Router> */}
-    <StoreFront  
+    
+    <Menu cart={cart} />
+    <Routes>
+       <Route path='/cart' element={<ShowCart cart={cart} costTotal={costTotal} setCart={setCart} setCostTotal={setCostTotal}/>} />
+       <Route path="/" element={ <StoreFront  
     cartTotal={cartTotal} 
     costTotal={costTotal} 
     addToCartTotal={addToCartTotal} 
-    removeFromCartTotal={removeFromCartTotal} 
-    cart={cart} />
+    cart={cart} />} />
+     </Routes>
+   
+    
     </>
   )
 

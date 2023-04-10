@@ -7,7 +7,7 @@ function ProductCards({ products, addToCartTotal, cart}) {
 	
 
 function handleClickAdd(products){
-addToCartTotal(products )
+addToCartTotal(products)
 }
 
 
@@ -31,7 +31,7 @@ addToCartTotal(products )
 								<br />
 								<span className="priceFormat">${products.price}</span>
 							</Card.Text>
-							<Button variant="primary" onClick={() => handleClickAdd(products)}>Add to Cart</Button> 
+							<Button variant="primary" onClick={() => handleClickAdd(products)}><span className="bungee" >Add to Cart</span></Button> 
 						</Card.Body>
 					</Card>
 				</div>

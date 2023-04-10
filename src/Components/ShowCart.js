@@ -1,50 +1,65 @@
-import React from 'react'
-import Table from 'react-bootstrap/Table';
+import React from "react";
+import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
+import {Link} from 'react-router-dom';
 
-
-export default function ShowCart({cart, setCart, costTotal, setCostTotal}) {
-
-        function removeFromCart(index){
-        const removeFromTotal = parseInt(cart[index].price);
-        setCostTotal(costTotal - removeFromTotal);
-        const cartRemove = [...cart];
-        cartRemove.splice(index, 1);
-        setCart(cartRemove);
-        }
-  return (
-<div className='container border border-dark border-1'>
-    <div className='row'>
-        
-    <Table striped>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Product</th>
-          <th>Price</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-      {cart.map((cart, index) => (
-           <tr>
-           <td>{index+1}</td>
-           <td>{cart.prodname}</td>
-           <td>${parseInt(cart.price)}</td>
-           <td><Button variant="outline-danger" onClick={() => removeFromCart(index)}>X</Button> </td>
-         </tr>
-      ))} 
-      <tr>
-           <td></td>
-           <td className='alignRightTotal totalText'>Total:</td>
-           <td className='totalText'> ${parseInt(costTotal)}</td>
-           <td></td>
-         </tr>
-      </tbody>
-    </Table>
-  
-    </div>
-    </div>
-  )
+export default function ShowCart({ cart, setCart, costTotal, setCostTotal }) {
+	function removeFromCart(index) {
+		const removeFromTotal = parseInt(cart[index].price);
+		setCostTotal(costTotal - removeFromTotal);
+		const cartRemove = [...cart];
+		cartRemove.splice(index, 1);
+		setCart(cartRemove);
+	}
+	return (
+		<div className="container border border-dark border-1 mt-5">
+      <h1 className="bungee text-center">FakeStore</h1>
+      <h6 className="bungee text-center">Where nothing is real, and your money is no good!</h6>
+			<div className="row">
+				<Table striped>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Product</th>
+							<th>Price</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						{cart.map((cart, index) => (
+							<tr>
+								<td>{index + 1}</td>
+								<td>{cart.prodname}</td>
+								<td>${parseInt(cart.price)}</td>
+								<td>
+									<Button
+										variant="outline-danger"
+										onClick={() => removeFromCart(index)}
+									>
+										<span className="bungee">X</span>
+									</Button>{" "}
+								</td>
+							</tr>
+						))}
+						<tr>
+							<td></td>
+							<td className="alignRightTotal totalText">Total:</td>
+							<td className="totalText"> ${parseInt(costTotal)}</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</Table>
+				<div className="row">
+          <div className="col bungee">
+					<Button variant="primary ">Checkout</Button>
+          </div>
+          <div className="col mb-2 bungee">
+            <Link to="/">
+					<Button variant="outline-primary">Continue Shopping </Button>
+          </Link>
+          </div>
+				</div>
+			</div>
+		</div>
+	);
 }
-
