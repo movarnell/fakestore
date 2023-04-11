@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import StoreFront from './Components/StoreFront';
 import Menu from './Components/Menu';
 import ShowCart from './Components/ShowCart';
+import Checkout from './Components/Checkout';
 
 
 
@@ -67,12 +68,14 @@ console.log(filteredArray.length);
     
     <Menu cart={cart} />
     <Routes>
-       <Route path='/cart' element={<ShowCart cart={cart} costTotal={costTotal} setCart={setCart} setCostTotal={setCostTotal}/>} />
+       <Route path='/cart' element={<ShowCart disabledButton='' cart={cart} costTotal={costTotal} setCart={setCart} setCostTotal={setCostTotal}/>} />
+       <Route path='/checkout' element={<Checkout cart={cart} costTotal={costTotal} setCostTotal={setCostTotal} setCart={setCart}/>}/>
        <Route path="/" element={ <StoreFront  
     cartTotal={cartTotal} 
     costTotal={costTotal} 
     addToCartTotal={addToCartTotal} 
     cart={cart} />} />
+    <Route path="/checkout" element={<Checkout cart={cart} costTotal={costTotal} setCart={setCart} setCostTotal={setCostTotal} />}/>
      </Routes>
    
     

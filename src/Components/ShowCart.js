@@ -1,15 +1,18 @@
 import React from "react";
+
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import {Link} from 'react-router-dom';
 
-export default function ShowCart({ cart, setCart, costTotal, setCostTotal }) {
+export default function ShowCart({ cart, setCart, costTotal, setCostTotal, }) {
+	
 	function removeFromCart(index) {
 		const removeFromTotal = parseInt(cart[index].price);
 		setCostTotal(costTotal - removeFromTotal);
 		const cartRemove = [...cart];
-		cartRemove.splice(index, 1);
+		cartRemove.splice(index, 1); // need to export this to make it work. 
 		setCart(cartRemove);
+
 	}
 	return (
 		<div className="container border border-dark border-1 mt-5">
@@ -50,7 +53,7 @@ export default function ShowCart({ cart, setCart, costTotal, setCostTotal }) {
 				</Table>
 				<div className="row">
           <div className="col bungee text-center">
-					<Button variant="primary m-4">Checkout</Button>  
+					<Link to="/checkout"><Button variant="primary m-4">Checkout</Button></Link>  
             <Link to="/">
 					<Button variant="outline-primary m-4">Continue Shopping </Button>
           </Link>
