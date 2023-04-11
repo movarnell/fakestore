@@ -5,6 +5,7 @@ import StoreFront from './Components/StoreFront';
 import Menu from './Components/Menu';
 import ShowCart from './Components/ShowCart';
 import Checkout from './Components/Checkout';
+import PostOrders from './CustomerAPI/PostOrders';
 
 
 
@@ -36,31 +37,28 @@ setCart([...cart, {
   price: parseInt(product.price),
   prodname: product.prodname,
 }]);
-
-
 console.log(cartTotal)
-// SO FILTERING THE ARRAY BELOW WILL PROVIDE A COUNT FOR HOW MANY ARE IN THE CART FOR THE CUSTOMER
-// NOW DO WE TAKE THAT COUNT AND ASSIGN IT AS A COUNT IN THE MOCK API, OR IN STATE? I WANT IT 
-// TO UPDATE AND BE USABLE LATER. 
 console.log(product.key)
 const filteredArray = cart.filter(item => item.id === product.key);
 console.log(filteredArray)
 console.log(filteredArray.length);
 }
 
+function handleBuy(fname, lname, email, cart, cartTotal){
+const newOrder = {
+  fname: fname,
+  lname: lname,
+  email: email,
+  products: [cart],
+  orderTotal: cartTotal
+}
+
+PostOrders(newOrder)
+}
 
 
 
-//Start next function
-// function removeFromCartTotal(product){
-//   console.log(product)
-// const productPrice = parseInt(product.price)
-// console.log(productPrice);
 
-
-// const updatedCart = cart.filter((item) => item.key  !== product.key);
-// setCart(updatedCart);
-  
 
 
   return (
@@ -69,13 +67,13 @@ console.log(filteredArray.length);
     <Menu cart={cart} />
     <Routes>
        <Route path='/cart' element={<ShowCart disabledButton='' cart={cart} costTotal={costTotal} setCart={setCart} setCostTotal={setCostTotal}/>} />
-       <Route path='/checkout' element={<Checkout cart={cart} costTotal={costTotal} setCostTotal={setCostTotal} setCart={setCart}/>}/>
+       <Route path='/checkout' element={<Checkout handleBuy={handleBuy} cart={cart} costTotal={costTotal} setCostTotal={setCostTotal} setCart={setCart}/>}/>
        <Route path="/" element={ <StoreFront  
     cartTotal={cartTotal} 
     costTotal={costTotal} 
     addToCartTotal={addToCartTotal} 
     cart={cart} />} />
-    <Route path="/checkout" element={<Checkout cart={cart} costTotal={costTotal} setCart={setCart} setCostTotal={setCostTotal} />}/>
+    <Route path="/checkout" element={<Checkout cart={cart} costTotal={costTotal} setCart={setCart} setCostTotal={setCostTotal} handleBuy={handleBuy} />}/>
      </Routes>
    
     

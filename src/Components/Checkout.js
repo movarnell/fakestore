@@ -3,9 +3,25 @@ import {Button} from 'react-bootstrap'
 import {Table} from 'react-bootstrap'
 
 
-export default function Checkout({ cart, setCart, costTotal, setCostTotal }) {
+export default function Checkout({ cart, costTotal, handleBuy, setCart, setCostTotal }) {
   
-
+function handleSubmit({cart}){
+	const fname = document.getElementById("fname").value;
+	const lname = document.getElementById("lname").value;
+	const email = document.getElementById("email").value;
+	const newCart = [...cart];
+	// console.log(fname)
+	// console.log(lname)
+	// console.log(email)
+	// console.log({cart})
+   handleBuy(fname, lname, email, newCart, costTotal)
+   
+   setCart([]);
+   setCostTotal(0);
+   document.getElementById("fname").value = "";
+   document.getElementById("lname").value = "";
+   document.getElementById("email").value = "";
+}
 
   return (
     <div>
@@ -47,11 +63,11 @@ export default function Checkout({ cart, setCart, costTotal, setCostTotal }) {
           <div className='col-5'>
             <h1 className='bungee display-2'>Checkout</h1>
             <h6 className='bungee ms-2'>So you made it this far, well go on buy this stuff.</h6>
-            <form className='form'>
+            <form className='form' >
               <input className='form-control m-2' type='text' id='fname' placeholder='First Name'></input>
               <input className='form-control m-2' type='text' id='lname' placeholder='Last Name'></input>
               <input className='form-control m-2' type='text' id='email' placeholder='email'></input>
-              <Button variant="success" className='m-3'>Buy</Button>
+              <Button variant="success" className='m-3' onClick={() => handleSubmit({cart})} >Buy</Button>
             </form>
           </div>
           
