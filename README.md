@@ -1,5 +1,1 @@
-The following libraries were installed to make this project:
-React
-Bootstrap, react-bootstrap
-
-This is a work in progress. Building out this storefront as manually as possible to help me learn through the headaches. If you see anywhere that can be improved when looking at this repo please let me know. I want to use best practices in my work. 
+This is a React-based e-commerce web application called "Fake Store" that allows users to browse and purchase fake products. The app uses React Bootstrap for styling and interacts with a mock API to retrieve product information. Users can add items to their cart, view the total cost of their cart, and checkout by submitting their order information to the mock API. The app also includes a title component that is displayed on every page. The codebase is modularized and follows best practices for React development.
