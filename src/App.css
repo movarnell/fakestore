@@ -1,45 +1,75 @@
-* {
-  margin: 0;
+/*
+This CSS code sets some global styles for all elements in the document,
+and defines specific styles for class selectors that are used in the HTML code.
+*/
+
+/* Set all properties to 0 for all elements */
+
+ *{
+	margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
 }
-
-
+/*
+  Define styles for elements with class "cardContainer".
+  This class is used to display a flex container with evenly spaced items.
+  */
 .cardContainer {
-  display: flex;
-  justify-content:space-evenly;
-  /* text-align: center; */
+	display: flex;
+	justify-content: space-evenly;
 }
 
-
-
+/*
+  Define styles for elements with class "priceFormat".
+  This class is used to set the font family, size, and alignment for price values.
+  */
 .priceFormat {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 2rem;
-  align-content: center;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	font-size: 2rem;
+	align-content: center;
 }
 
-.alignRightTotal{
-  text-align: end;
+/*
+  Define styles for elements with class "alignRightTotal".
+  This class is used to set the text alignment to the right.
+  */
+.alignRightTotal {
+	text-align: end;
 }
 
-.totalText{
-  font-size: 1.4rem;
-  font-weight: bold;
+/*
+  Define styles for elements with class "totalText".
+  This class is used to set the font size and weight for total price values.
+  */
+.totalText {
+	font-size: 1.4rem;
+	font-weight: bold;
 }
 
-.fillSVG{
- fill:white;
+/*
+  Define styles for elements with class "fillSVG".
+  This class is used to set the fill color for SVG graphics.
+  */
+.fillSVG {
+	fill: white;
 }
 
-.bungee{
-  font-family: bungee, Arial, Helvetica, sans-serif;
+/*
+  Define styles for elements with class "bungee".
+  This class is used to set the font family for elements that use the "Bungee" font.
+  */
+.bungee {
+	font-family: bungee, Arial, Helvetica, sans-serif;
 }
 
-.pageTitle{
-  font-family: 'Amatic SC', cursive;
+/*
+  Define styles for elements with class "pageTitle".
+  This class is used to set the font family for page titles.
+  */
+.pageTitle {
+	font-family: "Amatic SC", cursive;
 }
-
