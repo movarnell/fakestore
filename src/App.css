@@ -5,7 +5,7 @@ and defines specific styles for class selectors that are used in the HTML code.
 
 /* Set all properties to 0 for all elements */
 
- *{
+ {
 	margin: 0;
 	padding: 0;
 	border: 0;

@@ -17,8 +17,10 @@ export default function Checkout({
 		const email = document.getElementById("email").value;
 		// create a new cart array to avoid modifying the original cart
 		const newCart = [...cart];
+		let totalTaxIncluded = costTotal * 1.095;
+		totalTaxIncluded = totalTaxIncluded.toFixed(2);
 		// call handleBuy function with the form input values, newCart, and costTotal
-		handleBuy(fname, lname, email, newCart, costTotal);
+		handleBuy(fname, lname, email, newCart, totalTaxIncluded);
 		// clear cart and costTotal
 		setCart([]);
 		setCostTotal(0);
@@ -63,7 +65,7 @@ export default function Checkout({
 								<tr>
 									<td></td>
 									<td className="alignRightTotal totalText">Total:</td>
-									<td className="totalText"> ${parseInt(costTotal * 1.095)}</td>
+									<td className="totalText"> ${parseInt(costTotal * 1.095).toFixed(2)}</td>
 									<td></td>
 								</tr>
 							</tbody>
