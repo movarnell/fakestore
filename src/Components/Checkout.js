@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Table } from "react-bootstrap";
 
@@ -9,6 +9,9 @@ export default function Checkout({
 	setCart,
 	setCostTotal,
 }) {
+
+
+
 	// function to handle form submission
 	function handleSubmit({ cart }) {
 		// get form input values

@@ -8,6 +8,9 @@ import Checkout from "./Components/Checkout";
 import PostOrders from "./CustomerAPI/PostOrders";
 
 export default function App() {
+	// Moving state variable for products to top level
+	const [products, setProducts] = useState([]);
+
 	// Declare state variables for the cart
 	const [cartTotal, setCartTotal] = useState(0);
 	const [costTotal, setCostTotal] = useState(0);
@@ -98,6 +101,8 @@ export default function App() {
 					path="/"
 					element={
 						<StoreFront
+							products={products}
+							setProducts={setProducts}
 							cartTotal={cartTotal}
 							costTotal={costTotal}
 							addToCartTotal={addToCartTotal}
