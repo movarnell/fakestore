@@ -14,7 +14,7 @@ export default function StoreFront({
 	setCartTotal,
 	setCostTotal,
 	products,
-	setProducts
+	
 }) {
 
 	// useEffect hook to fetch the products data from the API on component mount

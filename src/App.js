@@ -99,7 +99,6 @@ const fetchProducts = async () => {
 					path="/:key" element={
 						<DetailsPage 
 						products={products}
-						setProducts={setProducts}
 						/>
 					}/>
 

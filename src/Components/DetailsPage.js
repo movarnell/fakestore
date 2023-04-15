@@ -1,30 +1,29 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 
 
-export default function DetailsPage({products }){
+export default function DetailsPage(products){
+        console.log("🚀 ~ file: DetailsPage.js:7 ~ DetailsPage ~ products:", products)
+
+        let productKey = useParams()
+        console.log("🚀 ~ file: DetailsPage.js:10 ~ DetailsPage ~ productKey:", productKey)
+        productKey = parseInt(productKey.key)
+        console.log("🚀 ~ file: DetailsPage.js:12 ~ DetailsPage ~ productKey:", productKey)
+        
+
+       
 
 
 
-
-        console.log("🚀 ~ file: DetailsPage.js:8 ~ DetailsPage ~ products:", products)
-        let {productKey} = useParams()
-        productKey = parseInt(productKey)
-
-        const product = products.find(p => p.key === productKey)
-        console.log("🚀 ~ file: DetailsPage.js:12 ~ DetailsPage ~ product:", product)
-
-useEffect(() => {
-        document.title = product ? product.prodname : "Loading..."}, [product])
-console.log(products);
-console.log(product);
+console.log(products.products[productKey].prodname);
 
         return (
                 <>
                 <Row>
                         <Col>
-                        <p>{product.prodname}</p>
+                        testing
+                        {products.products[productKey].prodname}
                         </Col>
                 </Row>
                 </>
