@@ -19,6 +19,32 @@ export default function ShowCart({ cart, setCart, costTotal, setCostTotal }) {
 	}
 
 	// Rendering the component
+	if(cart.length<1) {
+		return(
+			<>
+			<div className="container border border-dark border-1 mt-5">
+			<h1 className="bungee text-center">FakeStore</h1>
+			<div className="row">
+				{/* Displaying the cart items in a table */}
+				<Table striped>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Product</th>
+							<th>Price</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody className="text-center"><span className="display-3 bungee text-danger" >Nothing in Cart, go get some!</span></tbody>
+					</Table>
+					<Link to="/">
+							<Button variant="outline-primary m-4">Continue Shopping </Button>
+						</Link>
+		</div>
+		</div>
+		</>
+		)
+	}
 	return (
 		<div className="container border border-dark border-1 mt-5">
 			<h1 className="bungee text-center">FakeStore</h1>

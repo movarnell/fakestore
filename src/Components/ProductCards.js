@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import DetailsPage from "./DetailsPage";
 
-function ProductCards({ products, addToCartTotal, cart}) {
+function ProductCards({ products, addToCartTotal}) {
 
 	// function to handle adding products to the cart when the "Add to Cart" button is clicked
 	function handleClickAdd(products){
@@ -28,14 +28,15 @@ function ProductCards({ products, addToCartTotal, cart}) {
 							<Card.Title>{products.prodname}</Card.Title>
 							<Card.Text>
 								{/* product information: department, item, prodadj, material */}
-								<span className="fw-bold"> {products.department}, {products.item}, <br/>{products.prodadj}-{products.material} Key: {products.key}</span><br/>
+								<span className="fw-bold"> {products.department}, {products.item}, <br/>{products.prodadj}-{products.material} </span><br/>
 								{/* product description */}
 								{products.description}
 								<br />
 								<br />
 								{/* product price */}
 								<span className="priceFormat">${products.price}</span>
-								<p><Link to={products.key} element={<DetailsPage products={products} />}>More Info...</Link></p>
+								<br/>
+								<Link to={products.key} element={<DetailsPage products={products} />}><span className="bungee text-black "> More Info...</span></Link>
 							</Card.Text>
 
 							{/* button to add product to cart */}
