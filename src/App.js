@@ -10,6 +10,7 @@ import DetailsPage from "./Components/DetailsPage";
 import { getProductsAPI } from "./ProductsAPI/GetProductsAPI";
 
 export default function App() {
+	const [products, setProducts] = useState([]); 
 	// Declare state variables for the cart
 	const [cartTotal, setCartTotal] = useState(0);
 	const [costTotal, setCostTotal] = useState(0);
@@ -127,8 +128,6 @@ const fetchProducts = async () => {
 							costTotal={costTotal}
 							addToCartTotal={addToCartTotal}
 							cart={cart}
-							products={products}
-							setProducts={setProducts}
 						/>
 					}
 				/>

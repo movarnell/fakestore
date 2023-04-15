@@ -16,8 +16,6 @@ export default function StoreFront({
 	products,
 	setProducts
 }) {
-	// useState hook to hold the products data
-	const [products, setProducts] = useState([]);
 
 	// useEffect hook to fetch the products data from the API on component mount
 	// useEffect(() => {
