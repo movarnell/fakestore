@@ -8,26 +8,27 @@ import Checkout from "./Components/Checkout";
 import PostOrders from "./CustomerAPI/PostOrders";
 import DetailsPage from "./Components/DetailsPage";
 import { getProductsAPI } from "./ProductsAPI/GetProductsAPI";
+import FAQ from "./Components/FAQ";
 
 export default function App() {
-	const [products, setProducts] = useState([]); 
+	const [products, setProducts] = useState([]);
 	// Declare state variables for the cart
 	const [cartTotal, setCartTotal] = useState(0);
 	const [costTotal, setCostTotal] = useState(0);
 	const [cart, setCart] = useState([]);
 
 	// -----trying adding fetch component in DOWN TO MARKED -----
-// useEffect hook to fetch the products data from the API on component mount
-useEffect(() => {
-        fetchProducts();
-}, []);
+	// useEffect hook to fetch the products data from the API on component mount
+	useEffect(() => {
+		fetchProducts();
+	}, []);
 
-// fetch the products data from the API
-const fetchProducts = async () => {
-        const addProduct = await getProductsAPI();
-        setProducts(addProduct);
-};
-// -----END OF IMPORTED API FETCH -----
+	// fetch the products data from the API
+	const fetchProducts = async () => {
+		const addProduct = await getProductsAPI();
+		setProducts(addProduct);
+	};
+	// -----END OF IMPORTED API FETCH -----
 
 	// Function to add a product to the cart
 	function addToCartTotal(product) {
@@ -95,13 +96,12 @@ const fetchProducts = async () => {
 					}
 				/>
 				{/* Route to handle details pages */}
-					<Route 
-					path="/:key" element={
-						<DetailsPage 
-						products={products}
-						addToCartTotal={addToCartTotal}
-						/>
-					}/>
+				<Route
+					path="/:key"
+					element={
+						<DetailsPage products={products} addToCartTotal={addToCartTotal} />
+					}
+				/>
 
 				{/* Route to handle the checkout process */}
 				<Route
@@ -145,6 +145,8 @@ const fetchProducts = async () => {
 						/>
 					}
 				/>
+				{/* Route to handle the FAQ Page */}
+				<Route path="/FAQ" element={<FAQ />} />
 			</Routes>
 		</>
 	);
