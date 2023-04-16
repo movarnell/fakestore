@@ -1,21 +1,17 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { Button, Container, Table } from 'react-bootstrap';
 
 
 
-function Orders({ orders, setOrders, fetchOrders, removeOrder }) {
+function Orders({ orders, setOrders, removeOrder }) {
 	console.log('🚀 ~ file: Orders.js:5 ~ Orders ~ orders:', orders);
 
-        useEffect(() => {
-		fetchOrders();
-	},[]);
 
-	function removeFromOrders(index) {
+	function removeFromOrders(id) {
+		console.log("🚀 ~ file: Orders.js:11 ~ removeFromOrders ~ id:", id)
 		// Creating a copy of the cart array, removing the item using its index, and updating the state
-		const orderRemove = [...orders];
-		orderRemove.splice(index, 1);
-		removeOrder(index);
-                setOrders(orderRemove)
+		
+				removeOrder(id);
 	}
 
 
@@ -33,20 +29,20 @@ function Orders({ orders, setOrders, fetchOrders, removeOrder }) {
 					</tr>
 				</thead>
 				<tbody>
-					{orders.map((orders) => (
-						<tr key={orders.id}>
-							<td>{orders.id}</td>
+					{orders.map((order) => (
+						<tr key={order.id}>
+							<td>{order.id}</td>
 							<td>
-								{orders.fname} {orders.lname}
+								{order.fname} {order.lname}
 							</td>
-							<td>{orders.email}</td>
+							<td>{order.email}</td>
 							<td>
 								<ul className="list-unstyled">
-									{orders.products.map(
+									{order.products.map(
 										(product) => (
 											<li
 												key={
-													product.id
+													"p"+product.id + "o" + order.id 
 												}
 											>
 												{
@@ -62,15 +58,15 @@ function Orders({ orders, setOrders, fetchOrders, removeOrder }) {
 								</ul>
 							</td>
 							<td>
-								${parseFloat(orders.orderTotal)}
+								${parseFloat(order.orderTotal)}
 							</td>
-							<td>{orders.createdAt}</td>
+							<td>{order.createdAt}</td>
 							<td>
 								<Button
 									variant="outline-danger"
 									onClick={() =>
 										removeFromOrders(
-											orders.id
+											order.id
 										)
 									}
 								>

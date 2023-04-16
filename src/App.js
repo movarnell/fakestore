@@ -34,8 +34,14 @@ export default function App() {
 	}
 
 	const removeOrder = async (id) => {
+		console.log("🚀 ~ file: App.js:37 ~ removeOrder ~ id:", id)
 		await RemoveOrder(id)
-		fetchOrders();
+		// fetchOrders();
+		const orderRemove = [...orders];
+		const index=orders.findIndex((order) => order.id === id)
+		orderRemove.splice(index, 1);
+		
+                setOrders(orderRemove)
 	      }
 	// useEffect hook to fetch the products data from the API on component mount
 	useEffect(() => {
@@ -81,17 +87,18 @@ export default function App() {
 	}
 
 	// Function to handle the checkout process
-	function handleBuy(fname, lname, email, cart, cartTotal) {
+	async function handleBuy(fname, lname, email, cart, cartTotal) {
 		const newOrder = {
 			fname: fname,
 			lname: lname,
 			email: email,
-			products: [cart],
+			products: cart,
 			orderTotal: cartTotal,
 		};
 
-		// Call function to post the order to the backend
-		PostOrders(newOrder);
+		// Concat adds it to the back of the array. 
+		const createdOrder = await PostOrders(newOrder);
+		setOrders(orders.concat(createdOrder));
 	}
 
 	return (

@@ -92,7 +92,7 @@ export default function ShowCart({ cart, setCart, costTotal, setCostTotal, order
 						<Link to="/checkout">
 							<Button variant="primary m-4">Checkout</Button>
 						</Link>
-						<Link to="/orders" orders={orders} setOrders={setOrders} className="text-decoration-none">
+						<Link to="/orders" className="text-decoration-none">
 					<Button
 						variant="success"
 						className="text-white bungee fw-bolder"

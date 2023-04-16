@@ -176,7 +176,7 @@ export default function Checkout({
 				{/* display checkout header and subheader */}
 
 				{/* create a Buy button to submit the form */}
-				<Link to="/orders" orders={orders} setOrders={setOrders} className="text-decoration-none">
+				<Link to="/orders" className="text-decoration-none">
 					<Button
 						variant="success"
 						className="text-white bungee fw-bolder"
