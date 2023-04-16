@@ -8,16 +8,35 @@ import Checkout from "./Components/Checkout";
 import PostOrders from "./CustomerAPI/PostOrders";
 import DetailsPage from "./Components/DetailsPage";
 import { getProductsAPI } from "./ProductsAPI/GetProductsAPI";
+import { getOrders } from "./CustomerAPI/GetOrders"
 import FAQ from "./Components/FAQ";
+import Orders from "./Components/Orders";
+import RemoveOrder from "./CustomerAPI/RemoveOrder";
 
 export default function App() {
+	const [orders, setOrders] = useState([]);
 	const [products, setProducts] = useState([]);
 	// Declare state variables for the cart
 	const [cartTotal, setCartTotal] = useState(0);
 	const [costTotal, setCostTotal] = useState(0);
 	const [cart, setCart] = useState([]);
 
-	// -----trying adding fetch component in DOWN TO MARKED -----
+
+	// uesEffect hook to fetch the orders that have been placed from the API on component mount.
+	useEffect(() => {
+		fetchOrders();
+	},[]);
+
+	const fetchOrders = async () =>{
+		const addOrders = await getOrders();
+		setOrders(addOrders);
+		
+	}
+
+	const removeOrder = async (id) => {
+		await RemoveOrder(id)
+		fetchOrders();
+	      }
 	// useEffect hook to fetch the products data from the API on component mount
 	useEffect(() => {
 		fetchProducts();
@@ -28,16 +47,16 @@ export default function App() {
 		const addProduct = await getProductsAPI();
 		setProducts(addProduct);
 	};
-	// -----END OF IMPORTED API FETCH -----
+	
 
 	// Function to add a product to the cart
 	function addToCartTotal(product) {
-		const price = parseInt(product.price);
-		const currentTotal = parseInt(costTotal);
+		const price = parseFloat(product.price);
+		const currentTotal = parseFloat(costTotal);
 
 		// Update cart totals
-		let newTotal = parseInt(cartTotal) + 1;
-		setCartTotal(parseInt(newTotal));
+		let newTotal = parseFloat(cartTotal) + 1;
+		setCartTotal(parseFloat(newTotal));
 
 		// Calculate new cost
 		let newCost = currentTotal + price;
@@ -48,7 +67,7 @@ export default function App() {
 			...cart,
 			{
 				id: product.key,
-				price: parseInt(product.price),
+				price: parseFloat(product.price),
 				prodname: product.prodname,
 			},
 		]);
@@ -92,6 +111,8 @@ export default function App() {
 							costTotal={costTotal}
 							setCart={setCart}
 							setCostTotal={setCostTotal}
+							orders={orders}
+							setOrders={setOrders}
 						/>
 					}
 				/>
@@ -147,6 +168,10 @@ export default function App() {
 				/>
 				{/* Route to handle the FAQ Page */}
 				<Route path="/FAQ" element={<FAQ />} />
+
+				{/* Route to the Orders Component */}
+				<Route path="/orders" element={<Orders orders={orders} setOrders={setOrders} removeOrder={removeOrder} fetchOrders={fetchOrders}/>}/>
+
 			</Routes>
 		</>
 	);

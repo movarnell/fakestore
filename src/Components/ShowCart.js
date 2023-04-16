@@ -5,7 +5,8 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
 // Defining a functional component named ShowCart with props cart, setCart, costTotal, setCostTotal
-export default function ShowCart({ cart, setCart, costTotal, setCostTotal }) {
+export default function ShowCart({ cart, setCart, costTotal, setCostTotal, orders, setOrders }) {
+	console.log("🚀 ~ file: ShowCart.js:9 ~ ShowCart ~ cart:", cart)
 	// Defining a function to remove an item from the cart using its index
 	function removeFromCart(index) {
 		// Subtracting the price of the item removed from the total cost
@@ -50,7 +51,7 @@ export default function ShowCart({ cart, setCart, costTotal, setCostTotal }) {
 			<h1 className="bungee text-center">FakeStore</h1>
 			<div className="row">
 				{/* Displaying the cart items in a table */}
-				<Table striped>
+				<Table striped bordered hover>
 					<thead>
 						<tr>
 							<th>#</th>
@@ -64,7 +65,7 @@ export default function ShowCart({ cart, setCart, costTotal, setCostTotal }) {
 							<tr key={index}>
 								<td>{index + 1}</td>
 								<td>{cart.prodname}</td>
-								<td>${parseInt(cart.price)}</td>
+								<td>${parseFloat(cart.price).toFixed(2)}</td>
 								<td>
 									{/* Adding a remove button for each item in the cart */}
 									<Button
@@ -80,7 +81,7 @@ export default function ShowCart({ cart, setCart, costTotal, setCostTotal }) {
 						<tr>
 							<td></td>
 							<td className="alignRightTotal totalText">Total:</td>
-							<td className="totalText"> ${parseInt(costTotal)}</td>
+							<td className="totalText"> ${parseFloat(costTotal)}</td>
 							<td></td>
 						</tr>
 					</tbody>
@@ -91,6 +92,14 @@ export default function ShowCart({ cart, setCart, costTotal, setCostTotal }) {
 						<Link to="/checkout">
 							<Button variant="primary m-4">Checkout</Button>
 						</Link>
+						<Link to="/orders" orders={orders} setOrders={setOrders} className="text-decoration-none">
+					<Button
+						variant="success"
+						className="text-white bungee fw-bolder"
+					>
+						Orders
+					</Button>
+				</Link>
 						<Link to="/">
 							<Button variant="outline-primary m-4">Continue Shopping </Button>
 						</Link>

@@ -71,7 +71,12 @@ and defines specific styles for class selectors that are used in the HTML code.
 	font-family: bungee, Arial, Helvetica, sans-serif;
 }
 
-
+/* Remove the link decorations for the more info links */
+.removeLinkDecor{
+  text-decoration: none;
+  border: none;
+  
+}
 
 /*
   Define styles for elements with class "pageTitle".

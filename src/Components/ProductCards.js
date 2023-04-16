@@ -7,6 +7,7 @@ function ProductCards({ products, addToCartTotal}) {
 
 	// function to handle adding products to the cart when the "Add to Cart" button is clicked
 	function handleClickAdd(products){
+		console.log("🚀 ~ file: ProductCards.js:10 ~ handleClickAdd ~ products:", products)
 		addToCartTotal(products)
 	}
 
@@ -36,7 +37,7 @@ function ProductCards({ products, addToCartTotal}) {
 								{/* product price */}
 								<span className="priceFormat">${products.price}</span>
 								<br/>
-								<Link to={products.key} element={<DetailsPage products={products} />}><span className="bungee text-black "> More Info...</span></Link>
+								<Link to={products.key} className="removeLinkDecor bungee text-black" element={<DetailsPage products={products}  />}>More Info...</Link>
 							</Card.Text>
 
 							{/* button to add product to cart */}
