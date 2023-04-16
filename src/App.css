@@ -22,6 +22,11 @@ and defines specific styles for class selectors that are used in the HTML code.
 	justify-content: space-evenly;
 }
 
+.error{
+  color: red;
+  font-weight: bold;
+}
+
 /*
   Define styles for elements with class "priceFormat".
   This class is used to set the font family, size, and alignment for price values.

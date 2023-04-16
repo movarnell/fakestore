@@ -5,7 +5,8 @@ function FAQ() {
   return (
     <Container className="mt-3">
         <Row className=''>
-    <Accordion  defaultActiveKey="0">
+          <h1 className='display-3 bungee text-center'>Frequently Asked Questions</h1>
+    <Accordion  defaultActiveKey="0" className='fw-bold'>
       <Accordion.Item eventKey="0">
       <Accordion.Header>Q. What API did you use for the backend?
 </Accordion.Header>
@@ -24,7 +25,7 @@ function FAQ() {
        <Accordion.Item eventKey="2">
         <Accordion.Header>Q. Why don’t you have a full checkout form?</Accordion.Header>
         <Accordion.Body>
-         A. I chose the listed fields intentionally so that you could input fictitious information to test the system's functionality. To ensure that you feel at ease when providing false data, I deliberately refrained from adding validation.
+         A. I chose the listed fields intentionally so that you could input fictitious information to test the system's functionality. To ensure that you feel at ease when providing false data we didn't do actual payment inputs.
         </Accordion.Body>
       </Accordion.Item>
        <Accordion.Item eventKey="3">

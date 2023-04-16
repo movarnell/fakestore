@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
 import { Table } from "react-bootstrap";
+import {useFormik} from 'formik';
+import * as yup from 'yup';
+
 
 export default function Checkout({
 	cart,
@@ -9,15 +12,29 @@ export default function Checkout({
 	setCart,
 	setCostTotal,
 }) {
-
+const formik = useFormik({
+	initialValues: {
+		fname: "",
+		lname: "",
+		email: "",
+	},
+	onSubmit: values => {
+		handleSubmit(values) 
+	},
+	validationSchema: yup.object({
+		email: yup.string().required('Email is required').email('Invalid email address'),
+		fname: yup.string().required('First Name is required'),
+		lname: yup.string().required('Last Name is required')
+	})
+})
 
 
 	// function to handle form submission
-	function handleSubmit({ cart }) {
-		// get form input values
-		const fname = document.getElementById("fname").value;
-		const lname = document.getElementById("lname").value;
-		const email = document.getElementById("email").value;
+	function handleSubmit(values) {
+		
+		const {fname, lname, email} = values;
+		
+		
 		// create a new cart array to avoid modifying the original cart
 		const newCart = [...cart];
 		let totalTaxIncluded = costTotal * 1.095;
@@ -27,10 +44,8 @@ export default function Checkout({
 		// clear cart and costTotal
 		setCart([]);
 		setCostTotal(0);
-		// clear form input values
-		document.getElementById("fname").value = "";
-		document.getElementById("lname").value = "";
-		document.getElementById("email").value = "";
+		
+
 	}
 
 	return (
@@ -81,30 +96,42 @@ export default function Checkout({
 							So you made it this far, well go on buy this stuff.
 						</h6>
 						{/* create a form for user input */}
-						<form className="form">
+						<form onSubmit={formik.handleSubmit}>
 							<input
 								className="form-control m-2"
 								type="text"
 								id="fname"
 								placeholder="First Name"
+								value={formik.values.fname}
+								onChange={formik.handleChange}
+								onBlur={formik.handleBlur}
 							></input>
+							<div className="error">{formik.errors.fname && formik.touched.fname && formik.errors.fname}</div>
 							<input
 								className="form-control m-2"
 								type="text"
 								id="lname"
 								placeholder="Last Name"
+								value={formik.values.lname}
+								onChange={formik.handleChange}
 							></input>
+							<div className="error">{formik.errors.lname && formik.touched.lname && formik.errors.lname}</div>
+
 							<input
 								className="form-control m-2"
 								type="text"
 								id="email"
 								placeholder="email"
+								value={formik.values.email}
+								onChange={formik.handleChange}
 							></input>
+							<div className="error">{formik.errors.email && formik.touched.email && formik.errors.email}</div>
+
 							{/* create a Buy button to submit the form */}
 							<Button
 								variant="success"
 								className="m-3"
-								onClick={() => handleSubmit({ cart })}
+								type="submit"
 							>
 								Buy
 							</Button>
