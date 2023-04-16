@@ -85,7 +85,8 @@ export default function App() {
 		console.log(filteredArray);
 		console.log(filteredArray.length);
 	}
-
+    const nowDate = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) 
+	
 	// Function to handle the checkout process
 	async function handleBuy(fname, lname, email, cart, cartTotal) {
 		const newOrder = {
@@ -94,6 +95,7 @@ export default function App() {
 			email: email,
 			products: cart,
 			orderTotal: cartTotal,
+			createdAt: nowDate,
 		};
 
 		// Concat adds it to the back of the array. 
