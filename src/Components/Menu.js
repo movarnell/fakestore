@@ -18,6 +18,7 @@ function Menu({ cart }) {
 						</Link>
 					</Navbar.Brand>
 <NavItem><Link to="/FAQ" className="text-decoration-none text-white bungee fw-bolder">FAQ</Link> </NavItem>
+<NavItem><Link to="/orders" className="text-decoration-none text-white bungee fw-bolder">Orders</Link> </NavItem>
 					{/* Display the cart icon and its badge */}
 					<NavItem>
 						<Link to="/cart">

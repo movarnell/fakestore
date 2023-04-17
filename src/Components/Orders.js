@@ -1,9 +1,10 @@
 import React from 'react';
 import { Button, Container, Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 
-function Orders({ orders, setOrders, removeOrder }) {
+function Orders({ orders, removeOrder }) {
 	console.log('🚀 ~ file: Orders.js:5 ~ Orders ~ orders:', orders);
 
 
@@ -17,7 +18,10 @@ function Orders({ orders, setOrders, removeOrder }) {
 
 	return (
 		<Container>
-			<Table striped bordered hover>
+						<h2 className='bungee fw-bolder text-center mt-3'>Order History</h2>
+						<h4 className='pageTitle fw-bolder text-center'>All purchases made on the site are listed here unless deleted by the user. Max: 50 purchases due to mockAPI.io implemented cap. </h4>
+
+			<Table className="mt-4 border border-3  " responsive striped bordered hover>
 				<thead>
 					<tr>
 						<th>Order Number</th>
@@ -79,6 +83,15 @@ function Orders({ orders, setOrders, removeOrder }) {
 					))}
 				</tbody>
 			</Table>
+			<Link to="/">
+			<Button variant='outline-primary m-1' >Back to Storefront</Button>
+			</Link>
+			<Link to="/cart">
+			<Button variant='outline-primary m-1' >Back to Cart</Button>
+			</Link>
+			<Link to="/checkout">
+			<Button variant='primary m-1' >Back to Checkout</Button>
+			</Link>
 		</Container>
 	);
 }
