@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
 // Defining a functional component named ShowCart with props cart, setCart, costTotal, setCostTotal
-export default function ShowCart({ cart, setCart, costTotal, setCostTotal, orders, setOrders }) {
+export default function ShowCart({ cart, setCart, costTotal, setCostTotal}) {
 	console.log("🚀 ~ file: ShowCart.js:9 ~ ShowCart ~ cart:", cart)
 	// Defining a function to remove an item from the cart using its index
 	function removeFromCart(index) {
@@ -81,7 +81,7 @@ export default function ShowCart({ cart, setCart, costTotal, setCostTotal, order
 						<tr>
 							<td></td>
 							<td className="alignRightTotal totalText">Total:</td>
-							<td className="totalText"> ${parseFloat(costTotal)}</td>
+							<td className="totalText"> ${costTotal.toFixed(2)}</td>
 							<td></td>
 						</tr>
 					</tbody>
@@ -92,17 +92,18 @@ export default function ShowCart({ cart, setCart, costTotal, setCostTotal, order
 						<Link to="/checkout">
 							<Button variant="primary m-4">Checkout</Button>
 						</Link>
-						<Link to="/orders" className="text-decoration-none">
-					<Button
-						variant="success"
-						className="text-white bungee fw-bolder"
-					>
-						Orders
-					</Button>
-				</Link>
+						
 						<Link to="/">
 							<Button variant="outline-primary m-4">Continue Shopping </Button>
 						</Link>
+						<Link to="/orders" className="text-decoration-none">
+					<Button
+						variant="outline-success"
+						className=" bungee fw-bolder"
+					>
+						See Order History
+					</Button>
+				</Link>
 					</div>
 				</div>
 			</div>

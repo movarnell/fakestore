@@ -50,7 +50,7 @@ function Orders({ orders, setOrders, removeOrder }) {
 												}{' '}
 												$
 												{
-													product.price
+													product.price.toFixed(2)
 												}
 											</li>
 										)
@@ -58,7 +58,7 @@ function Orders({ orders, setOrders, removeOrder }) {
 								</ul>
 							</td>
 							<td>
-								${parseFloat(order.orderTotal)}
+								${parseFloat(order.orderTotal).toFixed(2)}
 							</td>
 							<td>{order.createdAt}</td>
 							<td>

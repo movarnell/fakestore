@@ -61,12 +61,13 @@ export default function App() {
 		const currentTotal = parseFloat(costTotal);
 
 		// Update cart totals
-		let newTotal = parseFloat(cartTotal) + 1;
+		const newTotal = parseFloat(cartTotal) + 1;
 		setCartTotal(parseFloat(newTotal));
 
 		// Calculate new cost
-		let newCost = currentTotal + price;
+		const newCost = currentTotal + price;
 		setCostTotal(newCost);
+		console.log(newCost);
 
 		// Add new item to cart array
 		setCart([

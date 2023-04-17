@@ -18,7 +18,7 @@ function ProductCards({ products, addToCartTotal}) {
 				<div className="col cardContainer" key={products.key}>
 					{/* individual product Card */}
 					<Card
-						style={{ width: "18rem" }}
+						style={{ width: "20rem" }}
 						className="shadow mb-4 mt-4"
 						key={products.key}
 					>
@@ -26,7 +26,7 @@ function ProductCards({ products, addToCartTotal}) {
 						<Card.Img variant="top" src={products.image} />
 						<Card.Body>
 							{/* product name */}
-							<Card.Title>{products.prodname}</Card.Title>
+							<Card.Title className="bungee">{products.prodname}</Card.Title>
 							<Card.Text>
 								{/* product information: department, item, prodadj, material */}
 								<span className="fw-bold"> {products.department}, {products.item}, <br/>{products.prodadj}-{products.material} </span><br/>
