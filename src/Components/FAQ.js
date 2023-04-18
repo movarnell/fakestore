@@ -32,7 +32,7 @@ function FAQ() {
         <Accordion.Header>Q. What's the process to bring you on board? We're seeking an individual who shares your level of passion for learning and development.
 </Accordion.Header>
         <Accordion.Body>
-         A. You can find my portfolio at <a href="www.MichaelVarnell.com" target='_blank'>www.MichaelVarnell.com</a>. From there, you can access my LinkedIn profile to contact me directly or explore my other projects and GitHub repositories.
+         A. You can find my portfolio at <a href="https://michaelvarnell.com" target='_blank'>www.MichaelVarnell.com</a>. From there, you can access my LinkedIn profile to contact me directly or explore my other projects and GitHub repositories.
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
