@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import DetailsPage from "./DetailsPage";
 
 function ProductCards({ products, addToCartTotal}) {
-
 	// function to handle adding products to the cart when the "Add to Cart" button is clicked
 	function handleClickAdd(products){
 		console.log("🚀 ~ file: ProductCards.js:10 ~ handleClickAdd ~ products:", products)
@@ -32,6 +31,7 @@ function ProductCards({ products, addToCartTotal}) {
 								<span className="fw-bold"> {products.department}, {products.item}, <br/>{products.prodadj}-{products.material} </span><br/>
 								{/* product description */}
 								{products.description}
+								)
 								<br />
 								<br />
 								{/* product price */}

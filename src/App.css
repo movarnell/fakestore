@@ -1,10 +1,4 @@
-/*
-This CSS code sets some global styles for all elements in the document,
-and defines specific styles for class selectors that are used in the HTML code.
-*/
-
-/* Set all properties to 0 for all elements */
-
+/* Reset all default styles */
 * {
 	margin: 0;
 	padding: 0;
@@ -13,24 +7,20 @@ and defines specific styles for class selectors that are used in the HTML code.
 	font: inherit;
 	vertical-align: baseline;
 }
-/*
-  Define styles for elements with class "cardContainer".
-  This class is used to display a flex container with evenly spaced items.
-  */
+
+/* Flex container for card elements */
 .cardContainer {
 	display: flex;
 	justify-content: space-evenly;
 }
 
+/* Error message style */
 .error{
   color: red;
   font-weight: bold;
 }
 
-/*
-  Define styles for elements with class "priceFormat".
-  This class is used to set the font family, size, and alignment for price values.
-  */
+/* Price format style */
 .priceFormat {
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -38,50 +28,34 @@ and defines specific styles for class selectors that are used in the HTML code.
 	align-content: center;
 }
 
-/*
-  Define styles for elements with class "alignRightTotal".
-  This class is used to set the text alignment to the right.
-  */
+/* Align total text to the right */
 .alignRightTotal {
 	text-align: end;
 }
 
-/*
-  Define styles for elements with class "totalText".
-  This class is used to set the font size and weight for total price values.
-  */
+/* Total text style */
 .totalText {
 	font-size: 1.4rem;
 	font-weight: bold;
 }
 
-/*
-  Define styles for elements with class "fillSVG".
-  This class is used to set the fill color for SVG graphics.
-  */
+/* Fill SVG color */
 .fillSVG {
 	fill: white;
 }
 
-/*
-  Define styles for elements with class "bungee".
-  This class is used to set the font family for elements that use the "Bungee" font.
-  */
+/* Bungee font style */
 .bungee {
 	font-family: bungee, Arial, Helvetica, sans-serif;
 }
 
-/* Remove the link decorations for the more info links */
+/* Remove link decoration */
 .removeLinkDecor{
   text-decoration: none;
   border: none;
-  
 }
 
-/*
-  Define styles for elements with class "pageTitle".
-  This class is used to set the font family for page titles.
-  */
+/* Page title font style */
 .pageTitle {
 	font-family: "Amatic SC", cursive;
 }

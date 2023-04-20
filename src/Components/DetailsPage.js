@@ -2,25 +2,32 @@ import React from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 
+// Define a functional component called DetailsPage that receives two props:
+// - products: an array of product objects
+// - addToCartTotal: a function to add a product to the cart
 export default function DetailsPage({ products, addToCartTotal }) {
-  console.log("🚀 ~ file: DetailsPage.js:6 ~ DetailsPage ~ products:", products)
+
+  // Get the 'key' parameter from the URL
   const { key } = useParams();
 
-  // Convert key to number and subtract 1 to get index
+  // Parse the 'key' as an integer and subtract 1 to get the index of the product in the array
   const productIndex = parseInt(key, 10) - 1;
 
-  // Check if productIndex is valid
+  // If the productIndex is invalid, return an error message
   if (isNaN(productIndex) || productIndex < 0 || productIndex >= products.length) {
     return <div>Error: Product not found.</div>;
   }
 
+  // Destructure the properties of the selected product from the array
   const { department, longDescription, image, item, material, price, prodadj, prodname } = products[productIndex];
 
-function handleClickAdd(products){
-  console.log("🚀 ~ file: DetailsPage.js:19 ~ handleClickAdd ~ products:", products)
-  addToCartTotal(products)
-}
+  // Define a function called handleClickAdd that takes the selected product as a parameter and adds it to the cart
+  function handleClickAdd(products){
+    console.log("🚀 ~ file: DetailsPage.js:19 ~ handleClickAdd ~ products:", products)
+    addToCartTotal(products)
+  }
 
+  // Return a JSX element with the details of the selected product
   return (
     <Container>
       <Row className='p-4'>
