@@ -26,8 +26,6 @@ git clone <https://github.com/username/fakestore-storefront.git>
 
 ```
 npm install
-npm i react-bootstrap bootstrap
-npm i react-router-dom
 
 ```
 
