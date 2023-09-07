@@ -35,7 +35,7 @@
 
 Feel free to submit issues and pull requests!
 
-:mailbox: Contact [Your Email](mailto:youremail@example.com)
+:mailbox: Contact [michaelvarnell@icloud.com](mailto:michaelvarnell@icloud.com)
 
 ---
 :sparkles: Made with :heart: by Michael Varnell :sparkles:
