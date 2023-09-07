@@ -9,7 +9,7 @@
 ## :rocket: Features :rocket:
 
 - :gift: **Product Listing**: Browse through a list of products available in the store.
-- :shopping_basket: **Cart Functionality**: Add or remove products from a cart.
+- :shopping_cart: **Cart Functionality**: Add or remove products from a cart.
 - :money_with_wings: **Order Placement**: Save user orders to a MockAPI resource when they are placed.
 
 ---
