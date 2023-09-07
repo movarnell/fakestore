@@ -1,41 +1,42 @@
-# Fakestore Storefront Project
+# :shopping_cart: Fake Store Project :shopping_cart:
 
-This is a mock storefront created to showcase my unique style and sense of humor, as well as demonstrate a complex React application. The website offers various features such as the ability to add items to a virtual shopping cart, view previous orders made on the site, and navigate through dynamic product pages using React Router. The website was developed with the use of [MockAPI.io](http://mockapi.io/) as the backend.
+## :star: Overview :star:
 
-## Technologies Used
+:point_right: This project is a **fake online store** that simulates product listings, cart functionality, and order placement. The application is built using MockAPI and Faker.js to generate and access product data.
 
-- React.js
-- React Router
-- JavaScript
-- [MockAPI.io](http://mockapi.io/)
-- HTML
-- CSS
+---
 
-## Getting Started
+## :rocket: Features :rocket:
 
-To get started with this project, follow these steps:
+- :gift: **Product Listing**: Browse through a list of products available in the store.
+- :shopping_basket: **Cart Functionality**: Add or remove products from a cart.
+- :money_with_wings: **Order Placement**: Save user orders to a MockAPI resource when they are placed.
 
-1. Clone the repository to your local machine.
+---
 
-```
-git clone <https://github.com/username/fakestore-storefront.git>
+## :wrench: Technologies Used :wrench:
 
-```
+- :globe_with_meridians: HTML, CSS, JavaScript
+- :bar_chart: MockAPI
+- :game_die: Faker.js
+- Create-React-App was used before support was dropped for it. 
 
-1. Install the dependencies.
+---
 
-```
-npm install
-npm i react-bootstrap bootstrap
-npm i react-router-dom
+## :gear: Installation :gear:
 
-```
+1. :fork_and_knife: **Clone the repository**.
+2. :package: Run `npm install` to install the dependencies.
+3. :fire: Run `npm start` to start the development server.
 
-1. Start the development server.
+---
 
-```
-npm start
+## :raising_hand: Contributing :raising_hand:
 
-```
+Feel free to submit issues and pull requests!
 
-1. Open `http://localhost:3000` in your web browser.
+:mailbox: Contact [Your Email](mailto:youremail@example.com)
+
+---
+:sparkles: Made with :heart: by Michael Varnell :sparkles:
+
