@@ -3,8 +3,7 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 
 // Define a functional component called DetailsPage that receives two props:
-// - products: an array of product objects
-// - addToCartTotal: a function to add a product to the cart
+
 export default function DetailsPage({ products, addToCartTotal }) {
 
   // Get the 'key' parameter from the URL
