@@ -40,7 +40,7 @@ export default function DetailsPage({ products, addToCartTotal }) {
           <h2>{prodadj}</h2>
           <h1 className='display-5'>${price}</h1><br />
           <Link to="/">
-            <Button variant='primary' className='m-3'><span className='bungee'>Continue Shopping</span></Button>
+            <Button variant='primary' className='m-3'><span className='bungee'>Go Back To Shopping</span></Button>
             <Button variant="primary" className='m-3' onClick={() => handleClickAdd(products[productIndex])}><span className="bungee" >Add to Cart</span></Button> 
           </Link>
         </Col>
